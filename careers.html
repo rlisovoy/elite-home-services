@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join Our Team — Elite Home Services</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.7;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    :root {
+      --black:  #0e0e0e;
+      --white:  #ffffff;
+      --grey-1: #f5f5f5;
+      --grey-2: #e8e8e8;
+      --grey-3: #999999;
+      --grey-4: #555555;
+      --accent: #b8a97e;
+      --green:  #2d7a4f;
+      --radius: 4px;
+      --max-w:  1160px;
+      --nav-h:  72px;
+    }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--black);
+    }
+    .section-title strong { font-weight: 600; }
+    .divider { width: 48px; height: 1px; background: var(--accent); margin: 20px 0 28px; }
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      border-radius: var(--radius);
+      transition: all 0.25s ease;
+    }
+    .btn-dark { background: var(--black); color: var(--white); }
+    .btn-dark:hover { background: #2a2a2a; transform: translateY(-1px); }
+    .btn-gold { background: var(--accent); color: var(--white); }
+    .btn-gold:hover { background: #9a8960; transform: translateY(-1px); }
+
+    /* ─── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-h); z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--grey-2);
+      display: flex; align-items: center;
+    }
+    nav .container { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-size: 1rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+    .nav-logo span { color: var(--accent); }
+    .nav-back { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-4); display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+    .nav-back:hover { color: var(--black); }
+    .nav-back svg { width: 16px; height: 16px; }
+
+    /* ─── Hero ── */
+    #hero {
+      min-height: 72vh;
+      padding-top: var(--nav-h);
+      background: var(--black);
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: right 25%;
+      opacity: 0.35;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.4) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 80px 0;
+      width: 100%;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .hero-title {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 200;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero-title strong { font-weight: 700; display: block; }
+    .hero-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 560px;
+      line-height: 1.9;
+      margin-bottom: 36px;
+    }
+
+    /* ─── Founder Note ── */
+    #founder-note {
+      padding: 80px 0;
+      background: var(--grey-1);
+    }
+    .founder-note-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 860px;
+    }
+    .founder-note-photo {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 3px solid var(--accent);
+    }
+    .founder-note-photo img { width: 100%; height: 100%; object-fit: cover; object-position: right top; }
+    .founder-note-text {
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1.8;
+    }
+    .founder-note-sig {
+      margin-top: 16px;
+      font-size: 0.82rem;
+      font-style: normal;
+      color: var(--grey-3);
+    }
+    .founder-note-sig strong { color: var(--black); font-style: normal; }
+
+    /* ─── Benefits ── */
+    #benefits {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .benefits-intro { max-width: 600px; margin-bottom: 64px; }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+      background: var(--grey-2);
+      margin-bottom: 48px;
+    }
+    .benefit-card {
+      background: var(--white);
+      padding: 40px 36px;
+      transition: background 0.2s;
+    }
+    .benefit-card:hover { background: var(--grey-1); }
+    .benefit-icon { font-size: 1.8rem; margin-bottom: 16px; }
+    .benefit-card h3 {
+      font-size: 1rem; font-weight: 600;
+      color: var(--black); margin-bottom: 8px;
+    }
+    .benefit-card p { font-size: 0.85rem; color: var(--grey-4); line-height: 1.8; }
+    .benefit-highlight {
+      display: inline-block;
+      background: #e8f5ee;
+      color: var(--green);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    /* ─── Who We're Looking For ── */
+    #looking-for {
+      padding: 100px 0;
+      background: var(--black);
+    }
+    #looking-for .section-title { color: var(--white); }
+    .looking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 48px;
+    }
+    .looking-list { list-style: none; }
+    .looking-list li {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .looking-list li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .not-list { list-style: none; }
+    .not-list li {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.45);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      text-decoration: none;
+    }
+    .not-list li::before {
+      content: '✕';
+      color: rgba(255,255,255,0.25);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .looking-col-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .label-green { color: var(--accent); }
+    .label-grey  { color: rgba(255,255,255,0.3); }
+
+    /* ─── Perks strip ── */
+    #perks {
+      background: var(--accent);
+      padding: 32px 0;
+    }
+    .perks-strip {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    .perk-item {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .perk-item::before { content: '★'; font-size: 0.6rem; opacity: 0.7; }
+
+    /* ─── Application Form ── */
+    #apply {
+      padding: 100px 0;
+      background: var(--grey-1);
+    }
+    .apply-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .apply-info h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 300; margin-bottom: 16px; }
+    .apply-info p { font-size: 0.9rem; color: var(--grey-4); line-height: 1.8; margin-bottom: 20px; }
+    .apply-detail {
+      display: flex; gap: 14px; align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    .apply-detail svg { width: 18px; height: 18px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+    .apply-detail-label { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-3); margin-bottom: 2px; }
+    .apply-detail-text { font-size: 0.85rem; color: var(--grey-4); }
+
+    .app-form {
+      background: var(--white);
+      padding: 48px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 40px rgba(0,0,0,0.06);
+    }
+    .form-section-title {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 28px 0 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--grey-2);
+    }
+    .form-section-title:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--grey-3);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 12px 16px;
+      border: 1px solid var(--grey-2); border-radius: var(--radius);
+      font-size: 0.9rem; font-family: inherit;
+      color: var(--black); background: var(--white);
+      outline: none; transition: border-color 0.2s;
+      appearance: none; -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--black); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+    .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+    .checkbox-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.85rem; color: var(--grey-4);
+      cursor: pointer;
+    }
+    .checkbox-item input[type="checkbox"] {
+      width: 16px; height: 16px; padding: 0;
+      accent-color: var(--black);
+      cursor: pointer;
+    }
+    .submit-btn {
+      width: 100%; padding: 16px; margin-top: 12px;
+      font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
+      background: var(--black); color: var(--white);
+      border: none; border-radius: var(--radius);
+      cursor: pointer; transition: background 0.25s, transform 0.15s;
+    }
+    .submit-btn:hover { background: #2a2a2a; transform: translateY(-1px); }
+    .form-note { font-size: 0.75rem; color: var(--grey-3); margin-top: 14px; line-height: 1.6; }
+
+    /* ─── FAQ ── */
+    #faq {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .faq-item { padding: 32px; background: var(--grey-1); border-radius: var(--radius); }
+    .faq-item h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 10px; color: var(--black); }
+    .faq-item p { font-size: 0.85rem; color: var(--grey-4); line-height: 1.8; }
+
+    /* ─── Footer ── */
+    footer { background: var(--black); padding: 40px 0; }
+    .footer-inner {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo { font-size: 0.9rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); }
+    .footer-logo span { color: var(--accent); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+    .footer-link { font-size: 0.75rem; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-link:hover { color: var(--white); }
+
+    /* ─── Responsive ── */
+    @media (max-width: 900px) {
+      .looking-grid, .apply-grid, .faq-grid { grid-template-columns: 1fr; gap: 40px; }
+      .founder-note-grid { grid-template-columns: 1fr; }
+      .founder-note-photo { width: 80px; height: 80px; }
+    }
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .app-form { padding: 28px 20px; }
+      .perks-strip { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── Nav ── -->
+<nav>
+  <div class="container">
+    <a class="nav-logo" href="index.html">Elite<span>.</span> Home Services</a>
+    <a class="nav-back" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Main Site
+    </a>
+  </div>
+</nav>
+
+<!-- ─── Hero ── -->
+<section id="hero">
+  <img class="hero-bg" src="rina-photo.png" alt="Elite Home Services Team" />
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-tag">Now Hiring — DFW Area</div>
+      <h1 class="hero-title">
+        Do exceptional work.
+        <strong>Be taken care of.</strong>
+      </h1>
+      <p class="hero-sub">
+        Elite Home Services offers more than a job — we offer a career with full benefits, steady income, and a team that genuinely values the people who make it all possible.
+      </p>
+      <a class="btn btn-gold" href="#apply">Apply Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Founder Note ── -->
+<section id="founder-note">
+  <div class="container">
+    <div class="founder-note-grid">
+      <div class="founder-note-photo">
+        <img src="rina-photo.png" alt="Rina Lisovoy" />
+      </div>
+      <div>
+        <p class="founder-note-text">
+          "I know what it means to work hard and feel undervalued. That is not the team I am building. If you show up, do the work with pride, and treat our clients' homes with care — I will make sure you are paid well, covered fully, and treated with the respect every professional deserves. I am looking for people who want a real career, not just a job."
+        </p>
+        <p class="founder-note-sig"><strong>— Rina Lisovoy</strong>, Founder &amp; Owner, Elite Home Services</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Perks Strip ── -->
+<div id="perks">
+  <div class="container">
+    <div class="perks-strip">
+      <div class="perk-item">Full Health Insurance</div>
+      <div class="perk-item">Paid Vacation</div>
+      <div class="perk-item">Guaranteed Weekly Pay</div>
+      <div class="perk-item">Mileage Reimbursement</div>
+      <div class="perk-item">Paid Training</div>
+      <div class="perk-item">Flexible Scheduling</div>
+      <div class="perk-item">Performance Bonuses</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Benefits ── -->
+<section id="benefits">
+  <div class="container">
+    <div class="benefits-intro">
+      <p class="section-label">Compensation &amp; Benefits</p>
+      <h2 class="section-title">We invest in the people<br><strong>who represent us.</strong></h2>
+      <div class="divider"></div>
+      <p style="font-size:0.95rem;color:var(--grey-4);line-height:1.9;">Our team members are the face of Elite Home Services in some of DFW's most prestigious homes. We believe that level of trust deserves to be matched with a compensation package that is equally exceptional.</p>
+    </div>
+    <div class="benefits-grid">
+
+      <div class="benefit-card">
+        <div class="benefit-highlight">Full Coverage</div>
+        <div class="benefit-icon">🏥</div>
+        <h3>Health Insurance</h3>
+        <p>Comprehensive health insurance coverage for you and your eligible dependents. We cover the full premium for all full-time team members — no out-of-pocket surprises.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-highlight">Paid Time Off</div>
+        <div class="benefit-icon">🌴</div>
+        <h3>Vacation &amp; Paid Leave</h3>
+        <p>Paid vacation days that increase with tenure. Paid sick leave, personal days, and major holidays off — because rest makes you better at everything you do.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-highlight">Every Week</div>
+        <div class="benefit-icon">💵</div>
+        <h3>Guaranteed Weekly Pay</h3>
+        <p>Predictable, reliable income every week — not dependent on tips or variable bookings. Recurring client schedules mean you know exactly what your week looks like.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-highlight">We Cover It</div>
+        <div class="benefit-icon">🚗</div>
+        <h3>Mileage Reimbursement</h3>
+        <p>Full reimbursement for mileage between client homes. Your car is a tool for this job — we make sure using it doesn't cost you.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-highlight">Day One</div>
+        <div class="benefit-icon">📚</div>
+        <h3>Paid Training &amp; Onboarding</h3>
+        <p>Comprehensive paid training from day one. You will learn our standards, techniques, and products before ever stepping into a client's home — fully supported, never thrown in the deep end.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-highlight">Earn More</div>
+        <div class="benefit-icon">⭐</div>
+        <h3>Performance Bonuses</h3>
+        <p>Exceptional client feedback earns real bonuses. We recognize and reward the team members who consistently go above and beyond — your effort will always be noticed here.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-highlight">Supplied</div>
+        <div class="benefit-icon">🧴</div>
+        <h3>All Supplies Provided</h3>
+        <p>Premium professional-grade products and equipment are provided. You show up — we handle the rest. No out-of-pocket spending on supplies, ever.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-highlight">Your Schedule</div>
+        <div class="benefit-icon">📅</div>
+        <h3>Flexible Scheduling</h3>
+        <p>Full-time and part-time positions available. We work with your life — not against it. Consistent recurring routes mean predictable hours that you can plan around.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-highlight">Grow With Us</div>
+        <div class="benefit-icon">📈</div>
+        <h3>Career Growth</h3>
+        <p>As Elite Home Services grows, so do the opportunities within it. Team leads, training roles, and operational positions are filled from within — your future here has no ceiling.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Who We're Looking For ── -->
+<section id="looking-for">
+  <div class="container">
+    <p class="section-label">Who We're Looking For</p>
+    <h2 class="section-title">The right person for this role<br><strong>takes pride in everything they do.</strong></h2>
+    <div class="looking-grid">
+      <div>
+        <p class="looking-col-label label-green">You're a great fit if you…</p>
+        <ul class="looking-list">
+          <li>Take genuine pride in a beautifully cleaned space</li>
+          <li>Are reliable, punctual, and take commitments seriously</li>
+          <li>Are comfortable working in high-end, luxury homes</li>
+          <li>Handle fragile, valuable, and custom surfaces with care</li>
+          <li>Work well independently and as part of a small team</li>
+          <li>Are willing to consent to a background check</li>
+          <li>Have reliable personal transportation and a valid license</li>
+          <li>Are looking for a stable, long-term career — not just a gig</li>
+          <li>Welcome feedback and hold yourself to a high standard</li>
+        </ul>
+      </div>
+      <div>
+        <p class="looking-col-label label-grey">This role may not be the right fit if you…</p>
+        <ul class="not-list">
+          <li>Are looking for short-term or one-off work only</li>
+          <li>Are not comfortable with background screening</li>
+          <li>Prefer unpredictable or highly variable schedules</li>
+          <li>Are not comfortable working in clients' private homes</li>
+          <li>Do not have reliable transportation to client locations</li>
+        </ul>
+        <div style="margin-top:40px;padding:28px;background:rgba(184,169,126,0.1);border-radius:var(--radius);border:1px solid rgba(184,169,126,0.25);">
+          <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.8;">
+            <span style="color:var(--accent);font-weight:600;display:block;margin-bottom:8px;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;">No experience? No problem.</span>
+            Prior professional cleaning experience is preferred but not required. If you have the right character and work ethic, we will train you to our standard — fully paid from day one.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Application Form ── -->
+<section id="apply">
+  <div class="container">
+    <div class="apply-grid">
+      <div class="apply-info">
+        <p class="section-label">Apply Today</p>
+        <h2>Start your application.<br><strong>We respond within 48 hours.</strong></h2>
+        <div class="divider"></div>
+        <p>Fill out the form and we'll be in touch within two business days. All applications are reviewed personally by Rina.</p>
+        <div class="apply-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <div>
+            <div class="apply-detail-label">Questions?</div>
+            <div class="apply-detail-text">rina.lisovoy@gmail.com</div>
+          </div>
+        </div>
+        <div class="apply-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <div>
+            <div class="apply-detail-label">Service Area</div>
+            <div class="apply-detail-text">Highland Park · University Park · Southlake · Westlake · Colleyville · Plano · Frisco</div>
+          </div>
+        </div>
+        <div class="apply-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div>
+            <div class="apply-detail-label">Response Time</div>
+            <div class="apply-detail-text">Within 48 business hours</div>
+          </div>
+        </div>
+      </div>
+
+      <form class="app-form" action="mailto:rina.lisovoy@gmail.com" method="POST" enctype="text/plain">
+
+        <p class="form-section-title">Personal Information</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" name="First Name" placeholder="Alexandra" required />
+          </div>
+          <div class="form-group">
+            <label>Last Name *</label>
+            <input type="text" name="Last Name" placeholder="Harrison" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" name="Phone" placeholder="(214) 555-0100" required />
+          </div>
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" name="Email" placeholder="you@email.com" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>City of Residence *</label>
+            <input type="text" name="City" placeholder="Frisco, TX" required />
+          </div>
+          <div class="form-group">
+            <label>Authorized to Work in the US? *</label>
+            <select name="Work Authorization" required>
+              <option value="" disabled selected>Select…</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="form-section-title">Experience</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Prior Professional Cleaning Experience?</label>
+            <select name="Has Experience">
+              <option value="" disabled selected>Select…</option>
+              <option>Yes</option>
+              <option>No, but I'm willing to be trained</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Years of Experience</label>
+            <select name="Years of Experience">
+              <option value="" disabled selected>Select…</option>
+              <option>Less than 1 year</option>
+              <option>1–2 years</option>
+              <option>3–5 years</option>
+              <option>5+ years</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Worked in Luxury / High-End Homes Before?</label>
+          <select name="Luxury Experience">
+            <option value="" disabled selected>Select…</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Describe Your Cleaning Experience</label>
+          <textarea name="Experience Description" placeholder="Tell us about any professional or personal cleaning experience — types of homes, services performed, anything relevant…"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Specialty Skills (check all that apply)</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" name="Skill" value="Interior Windows" /> Interior windows</label>
+            <label class="checkbox-item"><input type="checkbox" name="Skill" value="Oven Deep Clean" /> Oven deep clean</label>
+            <label class="checkbox-item"><input type="checkbox" name="Skill" value="Cabinet Interiors" /> Cabinet interiors</label>
+            <label class="checkbox-item"><input type="checkbox" name="Skill" value="Eco Products" /> Eco-friendly products</label>
+            <label class="checkbox-item"><input type="checkbox" name="Skill" value="Post Construction" /> Post-construction clean</label>
+            <label class="checkbox-item"><input type="checkbox" name="Skill" value="Laundry & Linens" /> Laundry &amp; linens</label>
+          </div>
+        </div>
+
+        <p class="form-section-title">Availability</p>
+        <div class="form-group">
+          <label>Position Type Sought</label>
+          <select name="Position Type">
+            <option value="" disabled selected>Select…</option>
+            <option>Full-Time</option>
+            <option>Part-Time</option>
+            <option>Either / Flexible</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Days Available (check all that apply)</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" name="Day" value="Monday" /> Monday</label>
+            <label class="checkbox-item"><input type="checkbox" name="Day" value="Tuesday" /> Tuesday</label>
+            <label class="checkbox-item"><input type="checkbox" name="Day" value="Wednesday" /> Wednesday</label>
+            <label class="checkbox-item"><input type="checkbox" name="Day" value="Thursday" /> Thursday</label>
+            <label class="checkbox-item"><input type="checkbox" name="Day" value="Friday" /> Friday</label>
+            <label class="checkbox-item"><input type="checkbox" name="Day" value="Saturday" /> Saturday</label>
+            <label class="checkbox-item"><input type="checkbox" name="Day" value="Sunday" /> Sunday</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Available for Early Morning Starts (7–8am)?</label>
+            <select name="Early Morning">
+              <option value="" disabled selected>Select…</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>Occasionally</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Available for Weekend / Post-Event Cleaning?</label>
+            <select name="Weekend Availability">
+              <option value="" disabled selected>Select…</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>Occasionally</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="form-section-title">Transportation &amp; Background</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Reliable Personal Transportation?</label>
+            <select name="Transportation">
+              <option value="" disabled selected>Select…</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Valid Driver's License?</label>
+            <select name="Drivers License">
+              <option value="" disabled selected>Select…</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Willing to Consent to Background Check? *</label>
+            <select name="Background Check" required>
+              <option value="" disabled selected>Select…</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Verifiable References Available?</label>
+            <select name="References">
+              <option value="" disabled selected>Select…</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Bilingual? If so, what languages?</label>
+          <input type="text" name="Languages" placeholder="e.g. English, Spanish" />
+        </div>
+
+        <p class="form-section-title">Final Questions</p>
+        <div class="form-group">
+          <label>Why do you want to work with Elite Home Services? *</label>
+          <textarea name="Why Us" placeholder="Tell us what draws you to this role and what makes you a great fit…" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>How did you hear about us?</label>
+          <select name="How Did You Hear">
+            <option value="" disabled selected>Select…</option>
+            <option>Indeed / Job Board</option>
+            <option>Google Search</option>
+            <option>Nextdoor</option>
+            <option>Instagram / Facebook</option>
+            <option>Word of Mouth / Referral</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Application</button>
+        <p class="form-note">Submitting will open your email client with your application pre-filled and addressed to our hiring team. All applications are reviewed personally by Rina within 48 business hours.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ── -->
+<section id="faq">
+  <div class="container">
+    <p class="section-label">Common Questions</p>
+    <h2 class="section-title">What applicants<br><strong>ask us most.</strong></h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>Do I need prior cleaning experience?</h4>
+        <p>Prior experience is preferred but not required. If you have the right work ethic and attitude, we provide fully paid training from day one to bring you up to our standard.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Will I work alone or with a team?</h4>
+        <p>Depending on home size and service type, you may work solo or as part of a two-person team. You will always have support and a clear point of contact.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How soon can I start?</h4>
+        <p>After your application is reviewed and an interview is completed, onboarding can begin within 1–2 weeks. Paid training begins on your first official day.</p>
+      </div>
+      <div class="faq-item">
+        <h4>When does health insurance begin?</h4>
+        <p>Full health insurance coverage begins after a 60-day introductory period for all full-time team members. We cover the full premium — no cost to you.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How is pay structured?</h4>
+        <p>Team members are paid on a weekly basis. Pay is consistent and based on scheduled routes — not dependent on tips. Bonuses are awarded for exceptional client feedback.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What areas will I be working in?</h4>
+        <p>We serve Highland Park, University Park, Southlake, Westlake, Colleyville, Plano, and Frisco. Routes are assigned to minimize your drive time between clients.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html">Elite<span>.</span> Home Services</a>
+      <a class="footer-link" href="index.html">← Back to Main Site</a>
+      <p class="footer-copy">&copy; 2026 Elite Home Services. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
