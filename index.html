@@ -1124,7 +1124,6 @@
       <li><a href="#story">Our Story</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
     </ul>
     <a class="btn btn-dark nav-cta" href="#contact">Request Service</a>
   </div>
@@ -1681,53 +1680,6 @@
   </div>
 </section>
 
-<!-- ─── Testimonials ──────────────────────────────────────────────── -->
-<section id="testimonials">
-  <div class="container">
-    <p class="section-label">Client Stories</p>
-    <h2 class="section-title">What our clients<br><strong>say about us.</strong></h2>
-    <div class="divider"></div>
-    <div class="testimonials-grid">
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-quote">"Elite Home Services has completely changed how I think about having a cleaning team. They treat my home like their own — careful with every piece, thorough in every corner. Absolutely irreplaceable."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">SM</div>
-          <div>
-            <div class="author-name">Sarah M.</div>
-            <div class="author-loc">Recurring client — Upper East Side</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-quote">"We hired them for a move-out clean on our penthouse and the results were beyond impressive. The new owners commented on how immaculate the apartment was. Highly recommend."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">JR</div>
-          <div>
-            <div class="author-name">James R.</div>
-            <div class="author-loc">Move-out service — Greenwich, CT</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-quote">"After our dinner party for 30 guests, I woke up to a home that looked like nothing had even happened. Discreet, fast, and absolutely spotless. This team is the gold standard."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">LP</div>
-          <div>
-            <div class="author-name">Lauren P.</div>
-            <div class="author-loc">Post-event service — The Hamptons</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- ─── Contact ───────────────────────────────────────────────────── -->
 <section id="contact">
@@ -1791,4 +1743,55 @@
               <input type="email" id="email" name="Email" placeholder="you@email.com" required />
             </div>
             <div class="form-group">
-              <label for="phone">Phone N
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="Phone" placeholder="(212) 555-0100" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="service">Service Requested</label>
+            <select id="service" name="Service">
+              <option value="" disabled selected>Select a service…</option>
+              <option>Standard Deep Clean</option>
+              <option>Recurring Maintenance (Weekly)</option>
+              <option>Recurring Maintenance (Bi-Weekly)</option>
+              <option>Recurring Maintenance (Monthly)</option>
+              <option>Move-In / Move-Out</option>
+              <option>Post-Event Cleaning</option>
+              <option>Specialty / Add-Ons</option>
+              <option>Other / Not Sure</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="size">Home Size</label>
+              <select id="size" name="Home Size">
+                <option value="" disabled selected>Approx. sq ft…</option>
+                <option>Under 1,500 sq ft</option>
+                <option>1,500 – 3,000 sq ft</option>
+                <option>3,000 – 5,000 sq ft</option>
+                <option>5,000 – 8,000 sq ft</option>
+                <option>8,000+ sq ft</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="date">Preferred Date</label>
+              <input type="date" id="date" name="Preferred Date" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Additional Details</label>
+            <textarea id="message" name="Message" placeholder="Tell us about your home, any specific areas of focus, special instructions, or questions…"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send Request</button>
+          <p class="form-note">By submitting, your default email client will open with your request pre-filled. We respond within one business day and your information is kept completely confidential.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ───────────────�
